@@ -1,0 +1,557 @@
+<!doctype html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /> <title>IMSH 2026 — Using Low-Code + AI to Streamline Simulation Operations</title> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"> <style> :root{ --brand:#0A64A4; --muted:#6b7280; --bg:#f6f8fb; --card:#ffffff; font-family:'Inter',system-ui,sans-serif; } *{box-sizing:border-box} body{margin:0;background:var(--bg);color:#0f1720;line-height:1.6} /* NAVBAR */ nav{ position:sticky; top:0; background:#ffffff; border-bottom:1px solid #e5e7eb; z-index:50; } nav .navwrap{ max-width:1100px; margin:auto; padding:8px 16px 10px 16px; display:flex; flex-direction:column; gap:6px; } nav .nav-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; } nav .nav-title{ text-align:center; font-weight:700; color:var(--brand); font-size:16px; } nav .logos{ display:flex; align-items:center; gap:8px; } nav .logo-img{ height:70px; width:auto; object-fit:contain; } nav .nav-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:4px; } nav .nav-links a{ text-decoration:none; color:var(--brand); font-weight:600; padding:6px 10px; border-radius:999px; font-size:14px; } nav .nav-links a:hover{ background:#eaf3fb; } /* LAYOUT */ .container{max-width:1100px;margin:24px auto;padding:20px} .header-card{ background:var(--card); border:1px solid #e5e7eb; border-radius:14px; padding:20px; margin-bottom:20px; } .title{font-size:32px;font-weight:800;color:var(--brand);margin:0} .subtitle{color:var(--muted);font-weight:600;margin-top:4px} .welcome{margin-top:12px} .card{ background:var(--card); border:1px solid #e5e7eb; border-radius:12px; padding:20px; margin-bottom:20px; } .section-title{margin:0 0 12px 0;font-size:20px;font-weight:700} /* Session at a glance */ .badge-grid{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); font-size:14px; } .badge{ border-radius:10px; padding:10px 12px; } .badge p{margin:4px 0 0 0;color:var(--muted);} /* Codes */ .code-title{font-weight:600;margin:14px 0 4px 0} .code{ background:#f3f4f6; color:#111827; padding:8px 10px; border-radius:8px; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; font-size:14px; display:inline-block; max-width:100%; } .copy{ margin-top:4px; background:var(--brand); color:#ffffff; border:none; padding:6px 10px; border-radius:6px; cursor:pointer; font-weight:600; font-size:13px; } .copy:active{transform:translateY(1px)} /* Definitions */ .def-buttons{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; } .def-buttons a{ background:#eef5fb; color:var(--brand); padding:6px 10px; border-radius:999px; text-decoration:none; font-weight:600; font-size:13px; } /* Notes area */ .notes-wrapper{ margin-top:16px; display:flex; flex-direction:column; gap:8px; } .notes-label{ font-weight:600; font-size:14px; } #attendee-notes{ width:100%; min-height:220px; padding:10px; border-radius:8px; border:1px solid #d1d5db; font-family:inherit; font-size:14px; resize:vertical; background:#f9fafb; } .notes-buttons{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; } .notes-btn{ border:none; border-radius:6px; padding:8px 12px; font-size:13px; font-weight:600; cursor:pointer; } .notes-btn.primary{ background:var(--brand); color:#ffffff; } .notes-btn.secondary{ background:#e5e7eb; color:#111827; } .notes-btn.danger{ background:#fee2e2; color:#b91c1c; } /* Footer */ .footer{ text-align:center; color:var(--muted); margin:40px 0 20px; font-size:14px; } /* Print layout for PDF */ #print-notes{ display:none; max-width:800px; margin:0 auto; font-family:'Inter',system-ui,sans-serif; } #print-notes h1{ font-size:24px; font-weight:800; color:#0A64A4; margin:0 0 6px 0; } #print-notes .meta-line{ font-size:14px; color:#374151; } #print-notes hr{ margin:16px 0; border:none; border-top:1px solid #e5e7eb; } #print-notes h2{ font-size:18px; margin:0 0 8px 0; } #print-notes-content{ font-size:14px; white-space:pre-wrap; line-height:1.6; } /* Responsive */ @media(max-width:720px){ .title{font-size:26px} nav .logo-img{height:32px} } /* PRINT ONLY */ @media print{ body{ background:#ffffff; } nav, main, .footer{ display:none !important; } #print-notes{ display:block !important; padding:24px 16px; } } </style> </head> <body> <nav> <div class="navwrap"> <div class="nav-top"> <div class="logos"> 
+<img src="/Images/IMSH.jpeg" alt="IMSH logo" class="logo-img">
+</div> 
+<div class="nav-title">Belal Abusal, CHSOS · Cleveland Clinic Abu Dhabi</div> 
+<div class="logos" style="justify-content:flex-end"> 
+<img src="/Images/CCA.jpeg" alt="Cleveland Clinic Abu Dhabi logo" class="logo-img" style="height: 105px;"> 
+</div> 
+</div> 
+<div class="nav-links"> 
+<a href="#home">Home</a> <a href="#codes">Codes to Copy</a> <a href="#definitions">Definitions</a> <a href="#videos">Video Tutorials</a> <a href="#notes">Hand Notes</a> </div> </div> </nav> <main class="container"> <!-- HOME / HERO --> <section id="home" class="header-card"> <h1 class="title">Using Low-Code + AI to Streamline Simulation Operations</h1> <div class="subtitle">IMSH 2026 — Hot Topic Session</div> <p class="welcome"> Welcome to this learning hub designed for healthcare simulation professionals. This resource supports my IMSH 2026 Hot Topic session and helps you understand how Low-Code + AI tools such as Power Apps can be used to improve simulation operations, efficiency, and workflow automation. </p> </section> <!-- VISUAL OVERVIEW --> <section class="card"> <h2 class="section-title">Session at a Glance</h2> <p style="margin-top:4px;margin-bottom:10px;color:var(--muted);font-size:14px"> Use the sections below to quickly access codes, key definitions, video placeholders, and hand notes for later reference. </p> <div class="badge-grid"> <div class="badge" style="background:#eef5ff"> <strong>Codes to Copy</strong> <p>Ready-to-use button and navigation formulas you can paste into Power Apps.</p> </div> <div class="badge" style="background:#fef3c7"> <strong>Definitions</strong> <p>Short explanations of core Power Apps concepts used in this session.</p> </div> <div class="badge" style="background:#dcfce7"> <strong>Video Tutorials</strong> <p>Placeholders for short demos and follow-up videos after the conference.</p> </div> <div class="badge" style="background:#fee2e2"> <strong>Hand Notes</strong> <p>A simple checklist to help you build your first app from a SharePoint list.</p> </div> </div> </section> <!-- CODES -->
+<section id="codes" class="card">
+
+<!-- IMPORTANT RULE NOTE (TOP) -->
+<div class="code-note">
+  <strong>Important Rule (Very Important):</strong><br><br>
+
+  • If your button does <strong>ONLY ONE action</strong>, write the formula <strong>WITHOUT</strong> a semicolon<br>
+  <code>SubmitForm(MyForm)</code><br><br>
+
+  • If your button does <strong>MORE THAN ONE action</strong>, separate each action using a semicolon <code>;</code><br>
+  <code>SubmitForm(MyForm); Notify("Saved", NotificationType.Success)</code>
+</div>
+
+<h2 class="section-title">Codes to Copy</h2>
+
+<!-- FORM & DATA ACTIONS -->
+
+<div class="code-title">Saves the current form data to the connected data source</div>
+<div class="code" id="c101">SubmitForm(MyForm)</div>
+<button class="copy" data-id="c101">Copy Code</button>
+
+<div class="code-title">Saves the form and shows a success confirmation message</div>
+<div class="code" id="c102">SubmitForm(MyForm); Notify("Saved successfully", NotificationType.Success)</div>
+<button class="copy" data-id="c102">Copy Code</button>
+
+<div class="code-title">Switches the form into new record mode</div>
+<div class="code" id="c103">NewForm(MyForm)</div>
+<button class="copy" data-id="c103">Copy Code</button>
+
+<div class="code-title">Loads an existing record into the form for editing</div>
+<div class="code" id="c104">EditForm(MyForm)</div>
+<button class="copy" data-id="c104">Copy Code</button>
+
+<div class="code-title">Displays the form in read-only mode</div>
+<div class="code" id="c105">ViewForm(MyForm)</div>
+<button class="copy" data-id="c105">Copy Code</button>
+
+<div class="code-title">Clears all fields in the form</div>
+<div class="code" id="c106">ResetForm(MyForm)</div>
+<button class="copy" data-id="c106">Copy Code</button>
+
+<div class="code-title">Clears the value of a single text input</div>
+<div class="code" id="c107">Reset(TextInput1)</div>
+<button class="copy" data-id="c107">Copy Code</button>
+
+<div class="code-title">Deletes the currently selected item from the data source</div>
+<div class="code" id="c108">Remove(MySharePointList, ThisItem)</div>
+<button class="copy" data-id="c108">Copy Code</button>
+
+<div class="code-title">Deletes all items that match a condition</div>
+<div class="code" id="c109">RemoveIf(MySharePointList, Status = "Rejected")</div>
+<button class="copy" data-id="c109">Copy Code</button>
+
+<div class="code-title">Updates a specific field in the selected record</div>
+<div class="code" id="c110">Patch(MySharePointList, ThisItem, { Status: "Approved" })</div>
+<button class="copy" data-id="c110">Copy Code</button>
+
+<!-- NAVIGATION -->
+
+<div class="code-title">Moves to another screen with a fade animation</div>
+<div class="code" id="c111">Navigate(NextScreen, ScreenTransition.Fade)</div>
+<button class="copy" data-id="c111">Copy Code</button>
+
+<div class="code-title">Navigates instantly to the home screen</div>
+<div class="code" id="c112">Navigate(HomeScreen, ScreenTransition.None)</div>
+<button class="copy" data-id="c112">Copy Code</button>
+
+<div class="code-title">Navigates to a success or confirmation screen</div>
+<div class="code" id="c113">Navigate(SuccessScreen, ScreenTransition.Fade)</div>
+<button class="copy" data-id="c113">Copy Code</button>
+
+<div class="code-title">Navigates to another screen and clears the form</div>
+<div class="code" id="c114">Navigate(NextScreen); ResetForm(MyForm)</div>
+<button class="copy" data-id="c114">Copy Code</button>
+
+<div class="code-title">Returns to the previous screen</div>
+<div class="code" id="c115">Back()</div>
+<button class="copy" data-id="c115">Copy Code</button>
+
+<div class="code-title">Closes the app (mainly used on mobile devices)</div>
+<div class="code" id="c116">Exit()</div>
+<button class="copy" data-id="c116">Copy Code</button>
+
+<!-- GALLERY & SELECTION -->
+
+<div class="code-title">Returns the record currently selected in a gallery</div>
+<div class="code" id="c117">Gallery1.Selected</div>
+<button class="copy" data-id="c117">Copy Code</button>
+
+<div class="code-title">Refers to the current record inside a gallery or form</div>
+<div class="code" id="c118">ThisItem</div>
+<button class="copy" data-id="c118">Copy Code</button>
+
+<div class="code-title">Checks whether the current gallery item is selected</div>
+<div class="code" id="c119">ThisItem.IsSelected</div>
+<button class="copy" data-id="c119">Copy Code</button>
+
+<div class="code-title">Returns all records currently loaded in a gallery</div>
+<div class="code" id="c120">Gallery1.AllItems</div>
+<button class="copy" data-id="c120">Copy Code</button>
+
+<!-- FILTERING & SORTING -->
+
+<div class="code-title">Shows only records with a Pending status</div>
+<div class="code" id="c121">Filter(MySharePointList, Status = "Pending")</div>
+<button class="copy" data-id="c121">Copy Code</button>
+
+<div class="code-title">Filters records created by the logged-in user</div>
+<div class="code" id="c122">Filter(MySharePointList, CreatedBy.Email = User().Email)</div>
+<button class="copy" data-id="c122">Copy Code</button>
+
+<div class="code-title">Sorts records from newest to oldest</div>
+<div class="code" id="c123">Sort(MySharePointList, Created, Descending)</div>
+<button class="copy" data-id="c123">Copy Code</button>
+
+<div class="code-title">Sorts records alphabetically by a column</div>
+<div class="code" id="c124">SortByColumns(MySharePointList, "Title", Ascending)</div>
+<button class="copy" data-id="c124">Copy Code</button>
+
+<div class="code-title">Searches records based on text input</div>
+<div class="code" id="c125">Search(MySharePointList, TextInput1.Text, "Title")</div>
+<button class="copy" data-id="c125">Copy Code</button>
+
+<!-- USER & SYSTEM -->
+
+<div class="code-title">Displays the full name of the logged-in user</div>
+<div class="code" id="c126">User().FullName</div>
+<button class="copy" data-id="c126">Copy Code</button>
+
+<div class="code-title">Returns the email address of the logged-in user</div>
+<div class="code" id="c127">User().Email</div>
+<button class="copy" data-id="c127">Copy Code</button>
+
+<div class="code-title">Shows the Microsoft 365 profile image of the user</div>
+<div class="code" id="c128">User().Image</div>
+<button class="copy" data-id="c128">Copy Code</button>
+
+<div class="code-title">Converts the user email to lowercase</div>
+<div class="code" id="c129">Lower(User().Email)</div>
+<button class="copy" data-id="c129">Copy Code</button>
+
+<div class="code-title">Converts the user name to uppercase</div>
+<div class="code" id="c130">Upper(User().FullName)</div>
+<button class="copy" data-id="c130">Copy Code</button>
+
+<div class="code-title">Shows a personalized welcome message</div>
+<div class="code" id="c131">"Welcome, " & User().FullName</div>
+<button class="copy" data-id="c131">Copy Code</button>
+
+
+<script>
+document.querySelectorAll(".copy").forEach(button => {
+button.addEventListener("click", function () {
+  const code = document.getElementById(this.dataset.id);
+  if (!code) return;
+
+  navigator.clipboard.writeText(code.innerText.trim());
+  this.innerText = "Copied";
+
+  setTimeout(() => {
+    this.innerText = "Copy Code";
+  }, 1500);
+});
+});
+</script>
+
+<section id="definitions" class="card">
+<h2 class="section-title">Power Apps Definitions</h2>
+
+<div class="def-buttons">
+  <a href="#d-screen">Screen</a>
+  <a href="#d-app">App</a>
+  <a href="#d-control">Control</a>
+  <a href="#d-properties">Properties</a>
+  <a href="#d-formulabar">Formula Bar</a>
+
+  <a href="#d-datasource">Data Source</a>
+  <a href="#d-connector">Connector</a>
+  <a href="#d-table">Table / List</a>
+  <a href="#d-record">Record</a>
+  <a href="#d-field">Field / Column</a>
+
+  <a href="#d-form">Form</a>
+  <a href="#d-gallery">Gallery</a>
+  <a href="#d-label">Label</a>
+  <a href="#d-textinput">Text Input</a>
+  <a href="#d-button">Button</a>
+
+  <a href="#d-navigate">Navigate</a>
+  <a href="#d-onselect">OnSelect</a>
+  <a href="#d-displaymode">DisplayMode</a>
+
+  <a href="#d-save">Save</a>
+  <a href="#d-publish">Publish</a>
+  <a href="#d-version">Version</a>
+  <a href="#d-share">Share</a>
+
+  <a href="#d-environment">Environment</a>
+  <a href="#d-studio">Power Apps Studio</a>
+  <a href="#d-maker">Maker</a>
+  <a href="#d-user">User</a>
+
+  <a href="#d-preview">Preview</a>
+  <a href="#d-treeview">Tree View</a>
+  <a href="#d-insertmenu">Insert Menu</a>
+</div>
+
+<!-- Core Power Apps Terms -->
+<p id="d-screen">
+  <strong>Screen</strong> — A container in Power Apps that holds controls and user interface elements, similar to a page in an app.
+</p>
+
+<p id="d-app">
+  <strong>App</strong> — The complete Power Apps project that contains screens, data connections, logic, and user interactions.
+</p>
+
+<p id="d-control">
+  <strong>Control</strong> — An individual element such as a button, label, icon, gallery, or text input used to build the app interface.
+</p>
+
+<p id="d-properties">
+  <strong>Properties</strong> — Settings that define how a control looks and behaves, such as Text, Color, Visible, or OnSelect.
+</p>
+
+<p id="d-formulabar">
+  <strong>Formula Bar</strong> — The area where you write Power Apps expressions and logic, similar to writing formulas in Excel.
+</p>
+
+<!-- Data & Structure -->
+<p id="d-datasource">
+  <strong>Data Source</strong> — The service where your app reads and stores data, such as SharePoint, Dataverse, Excel, or SQL.
+</p>
+
+<p id="d-connector">
+  <strong>Connector</strong> — A bridge that allows Power Apps to connect to another service like Outlook, Teams, SharePoint, or databases.
+</p>
+
+<p id="d-table">
+  <strong>Table / List</strong> — A structured collection of data records and columns coming from a data source.
+</p>
+
+<p id="d-record">
+  <strong>Record</strong> — One single row of data inside a table or list.
+</p>
+
+<p id="d-field">
+  <strong>Field / Column</strong> — A single piece of data inside a record, such as Name, Date, Status, or Email.
+</p>
+
+<!-- Common Controls -->
+<p id="d-form">
+  <strong>Form</strong> — A control that allows users to view, create, or edit data from a data source.
+</p>
+
+<p id="d-gallery">
+  <strong>Gallery</strong> — A control that displays multiple records in a list, grid, or card layout.
+</p>
+
+<p id="d-label">
+  <strong>Label</strong> — A control used to display text or information to the user.
+</p>
+
+<p id="d-textinput">
+  <strong>Text Input</strong> — A control that allows users to type text or numbers into the app.
+</p>
+
+<p id="d-button">
+  <strong>Button</strong> — A control that triggers an action when selected, such as saving data or navigating to another screen.
+</p>
+
+<!-- Navigation & Behavior -->
+<p id="d-navigate">
+  <strong>Navigate</strong> — A function used to move the user from one screen to another inside the app.
+</p>
+
+<p id="d-onselect">
+  <strong>OnSelect</strong> — A property that defines what happens when a control (like a button) is clicked.
+</p>
+
+<p id="d-displaymode">
+  <strong>DisplayMode</strong> — Controls whether a control is editable, view-only, or disabled.
+</p>
+
+<!-- App Lifecycle -->
+<p id="d-save">
+  <strong>Save</strong> — Stores your current changes but does not make them live for users.
+</p>
+
+<p id="d-publish">
+  <strong>Publish</strong> — The process of saving and promoting your app so end users can access the latest version.
+</p>
+
+<p id="d-version">
+  <strong>Version</strong> — A snapshot of your app at a specific point in time; Power Apps keeps a history of versions.
+</p>
+
+<p id="d-share">
+  <strong>Share</strong> — Gives other users permission to run or edit your app.
+</p>
+
+<!-- Power Platform Context -->
+<p id="d-environment">
+  <strong>Environment</strong> — A workspace in Power Platform used to separate apps and data, such as Development, Test, or Production.
+</p>
+
+<p id="d-studio">
+  <strong>Power Apps Studio</strong> — The design interface where you build, edit, and test your app.
+</p>
+
+<p id="d-maker">
+  <strong>Maker</strong> — A person who builds and edits apps in Power Apps.
+</p>
+
+<p id="d-user">
+  <strong>User</strong> — An end user who runs the app but does not edit it.
+</p>
+
+<!-- Beginner Concepts -->
+<p id="d-preview">
+  <strong>Preview</strong> — Runs the app inside Power Apps Studio to test how it behaves before publishing.
+</p>
+
+<p id="d-treeview">
+  <strong>Tree View</strong> — A panel that shows all screens and controls in a structured list.
+</p>
+
+<p id="d-insertmenu">
+  <strong>Insert Menu</strong> — The menu where you add new controls, layouts, icons, and media to your app.
+</p>
+</section>
+<!-- VIDEOS -->
+<section id="videos" class="card">
+<h2 class="section-title">Video Tutorials</h2>
+
+<p style="margin-top:4px">
+  Follow the videos in order for the best learning experience.
+</p>
+
+<!-- VIDEO 1 -->
+<a href="https://youtu.be/23PKclMOM9Y" target="_blank" style="display:block;text-decoration:none;color:inherit;margin-top:12px">
+  <div style="height:200px;background:#eef2f7;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+    <div style="font-size:28px;font-weight:600">1️⃣ Watch First</div>
+    <div style="font-size:16px;text-align:center">
+      How to Create a SharePoint List<br>(Step-by-Step Tutorial)
+    </div>
+    <div style="font-size:14px;color:#6b7280">Click to watch on YouTube ▶</div>
+  </div>
+</a>
+
+<!-- VIDEO 2 -->
+<a href="https://youtu.be/ZFg4qQKjfdY" target="_blank" style="display:block;text-decoration:none;color:inherit;margin-top:12px">
+  <div style="height:200px;background:#eef2f7;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+    <div style="font-size:28px;font-weight:600">2️⃣ Watch Second</div>
+    <div style="font-size:16px;text-align:center">
+      How to Create an App Using a SharePoint List<br>(Power Apps)
+    </div>
+    <div style="font-size:14px;color:#6b7280">Click to watch on YouTube ▶</div>
+  </div>
+</a>
+
+<!-- VIDEO 3 -->
+<a href="https://youtu.be/uga-ATYCSYY" target="_blank" style="display:block;text-decoration:none;color:inherit;margin-top:12px">
+  <div style="height:200px;background:#eef2f7;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+    <div style="font-size:28px;font-weight:600">3️⃣ Watch Next</div>
+    <div style="font-size:16px;text-align:center">
+      How to Create a Power App from Blank<br>(Step-by-Step)
+    </div>
+    <div style="font-size:14px;color:#6b7280">Click to watch on YouTube ▶</div>
+  </div>
+</a>
+
+<!-- VIDEO 4 -->
+<a href="https://youtu.be/Pl2zjcD97SU" target="_blank" style="display:block;text-decoration:none;color:inherit;margin-top:12px">
+  <div style="height:200px;background:#eef2f7;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+    <div style="font-size:28px;font-weight:600">4️⃣ Watch at the End</div>
+    <div style="font-size:16px;text-align:center">
+      How to Create an Email Flow in Power Automate<br>(Step-by-Step)
+    </div>
+    <div style="font-size:14px;color:#6b7280">Click to watch on YouTube ▶</div>
+  </div>
+</a>
+
+</section>
+<!-- NOTES --> <section id="notes" class="card">
+<h2 class="section-title">Hand Notes — Creating Your First Power App</h2>
+
+<ol>
+  <li>
+    Before opening Power Apps, make sure you already have a SharePoint list
+    ready with the columns you need, such as Title, Description, or Status.
+    Preparing the data first makes building the app much easier. Use clear
+    column names and avoid special characters or starting column names with numbers.
+  </li>
+  <li>
+    Go to make.powerapps.com and create a new Canvas App from blank. Choose
+    a phone or tablet layout based on how users will access the app, then
+    give the app a clear and recognizable name.
+  </li>
+  <li>
+    Connect the app to your SharePoint list by opening the Data panel and
+    adding the list as a data source. If the list does not appear, check
+    that you selected the correct SharePoint site.
+  </li>
+  <li>
+    Insert a Gallery control and set its Items property to your SharePoint
+    list. This will display existing records in a scrollable list that users
+    can select from.
+  </li>
+  <li>
+    Add a Form control and connect it to the same SharePoint list. Use
+    NewForm to create new records and EditForm to update existing ones.
+    The form will save data automatically when SubmitForm is used.
+  </li>
+  <li>
+    Insert buttons for common actions such as Submit, Home, and Back. Use
+    SubmitForm to save data, Navigate to move between screens, and Back to
+    return to the previous screen. Keep button labels simple and clear.
+  </li>
+  <li>
+    Use the Play button to test the app. Try adding, editing, and navigating
+    between records, and adjust the layout and spacing if something does not
+    look right.
+  </li>
+  <li>
+    Save your app frequently, but remember that saving only stores changes
+    for you. Users will not see updates until you publish the app.
+  </li>
+  <li>
+    Publish the app after every important change so the latest version is
+    available online. If users say they cannot see updates, it usually means
+    the app was not published.
+  </li>
+  <li>
+    Share the app with users or groups and give them User access so they can
+    use the app without editing it.
+  </li>
+</ol>
+
+<div class="notes-wrapper">
+  <div class="notes-label">Your personal notes from this session</div>
+
+  <textarea
+    id="attendee-notes"
+    placeholder="Write your own ideas, actions, or reminders here..."
+  ></textarea>
+
+  <div class="notes-buttons">
+    <button class="notes-btn danger" id="clear-notes">Clear Notes</button>
+    <button class="notes-btn secondary" id="pdf-notes">Save your Notes</button>
+  </div>
+</div>
+</section>
+
+<div class="footer">
+Belal Abusal — IMSH 2026 Hot Topic: Using Low-Code + AI to Streamline Simulation Operations — San Antonio, Texas
+</div>
+
+</main>
+
+<!-- PRINT-ONLY NOTES LAYOUT (BRANDING LOCKED) -->
+<div id="print-notes">
+<h1>Using Low-Code + AI to Streamline Simulation Operations</h1>
+<div class="meta-line"><strong>Conference:</strong> IMSH 2026 — Hot Topic Session</div>
+<div class="meta-line"><strong>Location:</strong> San Antonio, Texas</div>
+<div class="meta-line"><strong>Presenter:</strong> Belal Abusal · Cleveland Clinic Abu Dhabi</div>
+<hr>
+
+<h2>Your Notes</h2>
+<div id="print-notes-content"></div>
+</div>
+
+<script>
+/* ===============================
+  COPY CODE BUTTONS
+================================ */
+document.querySelectorAll('.copy').forEach(btn => {
+btn.addEventListener('click', () => {
+  const id = btn.getAttribute('data-id');
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    const original = btn.innerText;
+    btn.innerText = 'Copied';
+    setTimeout(() => btn.innerText = original, 1200);
+  }).catch(() => {
+    alert('Copy failed — please copy manually.');
+  });
+});
+});
+
+/* ===============================
+  NOTES STORAGE + PRINT
+================================ */
+const NOTES_KEY = 'imsh2026_attendee_notes';
+
+const notesField = document.getElementById('attendee-notes');
+const saveNotesBtn = document.getElementById('save-notes');
+const clearNotesBtn = document.getElementById('clear-notes');
+const pdfNotesBtn = document.getElementById('pdf-notes');
+const printNotesContent = document.getElementById('print-notes-content');
+
+/* Load saved notes */
+if (notesField) {
+try {
+  const saved = localStorage.getItem(NOTES_KEY);
+  if (saved !== null) notesField.value = saved;
+} catch (e) {}
+}
+
+/* Save notes */
+if (saveNotesBtn && notesField) {
+saveNotesBtn.addEventListener('click', () => {
+  try {
+    localStorage.setItem(NOTES_KEY, notesField.value || '');
+    saveNotesBtn.innerText = 'Saved!';
+    setTimeout(() => saveNotesBtn.innerText = 'Save Notes', 1200);
+  } catch (e) {
+    alert('Unable to save notes.');
+  }
+});
+}
+
+/* Clear notes */
+if (clearNotesBtn && notesField) {
+clearNotesBtn.addEventListener('click', () => {
+  if (!confirm('This will clear your notes permanently. Continue?')) return;
+  notesField.value = '';
+  try {
+    localStorage.removeItem(NOTES_KEY);
+  } catch (e) {}
+});
+}
+
+/* Print / PDF */
+if (pdfNotesBtn && notesField && printNotesContent) {
+pdfNotesBtn.addEventListener('click', () => {
+  const text = notesField.value.trim();
+  printNotesContent.textContent =
+    text === '' ? '(No notes entered.)' : text;
+  window.print();
+});
+}
+</script>
+
+</body>
+</html>
